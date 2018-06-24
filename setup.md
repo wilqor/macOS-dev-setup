@@ -40,7 +40,7 @@ brew install zsh
 ```
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
-Edit `~/.zshrc` by setting `ZSH_THEME="agnoster`.
+Edit `~/.zshrc` by setting `ZSH_THEME="agnoster"`.
 
 Reload ZSH
 ```
