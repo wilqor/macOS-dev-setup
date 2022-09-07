@@ -1,18 +1,16 @@
 # macOS development setup tutorial
+> This tutorial was tested on macOS Monterey (12.5.1).
 
 ## Install Homebrew
 ```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-
-## Install Cask
-```
-brew tap caskroom/cask
-```
+Follow commands in the end of the installation completed message.
+Cask is already included.
 
 ## Install iTerm2
 ```
-brew cask install iterm2
+brew install iterm2
 ```
 
 ## Configure iTerm2
@@ -38,7 +36,7 @@ brew install zsh
 
 ## Install Oh My Zsh
 ```
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 ```
 Edit `~/.zshrc` by setting `ZSH_THEME="agnoster"`.
 
@@ -55,40 +53,38 @@ Go to font selection:
 ```
 iTerm2 -> Preferences -> Profiles -> Text -> Change Font
 ```
-There select font `14pt Meslo LG M DZ Regular for Powerline`
+There select font `Meslo LG L DZ for Powerline` and `Regular` and 14 pt.
 
 ## Install ZSH syntax highlighting
 ```
-brew install zsh-syntax-highlighting
-```
-Open `~/.zshrc` file and write the line below at its end:
-```
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 ```
 
 ## Install ZSH autosuggestions
 ```
-git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
-Edit `~/.zshrc` by setting `plugins=(zsh-autosuggestions)`
+
+## Install ZSH syntax highlighting
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+```
 
 Make autosuggestion more visible by writing the line below at the end of `~./zshrc`:
 ```
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
 ```
 
-Reload ZSH configuration
-`source ~/.zshrc`
-
 ## Enable ZSH plugins
-To activate some of built-in plugins described on [Oh My Zsh page](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins) add 
-them in `~/.zshrc` file:
+To activate some of built-in plugins described on [Oh My Zsh page](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins) as well as ZSH syntax highlighting and ZSH autosuggestions add
+them in the `plugins` section of the `~/.zshrc` file:
 ```
 plugins=(
   git
   zsh-autosuggestions
-  osx
-  colored-man
+  zsh-syntax-highlighting
+  macos
+  colored-man-pages
   colorize
 )
 ```
@@ -100,8 +96,9 @@ To apply changes reload ZSH configuration
 To jump and delete by word - with option key - select `Natural Text Editing` value
 from dropdown in:
 ```
-iTerm2 -> Preferences -> Profiles -> Keys -> Load Preset...
-``` 
+iTerm2 -> Preferences -> Profiles -> Keys -> Key Mappings -> Presets...
+```
+Choose `Keep` option if removing key mappings will will be suggested.
 
 ## References
 <https://gist.github.com/kevin-smets/8568070>
