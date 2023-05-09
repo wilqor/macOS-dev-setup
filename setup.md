@@ -1,5 +1,5 @@
 # macOS development setup tutorial
-> This tutorial was tested on macOS Monterey (12.5.1).
+> This tutorial was tested on macOS Ventura (13.3.1).
 
 ## Install Homebrew
 ```
@@ -51,25 +51,19 @@ Just follow instructions on <https://github.com/powerline/fonts>
 ## Configure font
 Go to font selection:
 ```
-iTerm2 -> Preferences -> Profiles -> Text -> Change Font
+iTerm2 -> Preferences -> Profiles -> Text -> Font
 ```
 There select font `Meslo LG L DZ for Powerline` and `Regular` and 14 pt.
 
 ## Install ZSH syntax highlighting
 ```
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 ## Install ZSH autosuggestions
 ```
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
-
-## Install ZSH syntax highlighting
-```
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-```
-
 Make autosuggestion more visible by writing the line below at the end of `~./zshrc`:
 ```
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
